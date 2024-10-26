@@ -3,22 +3,18 @@
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-// eslint-disable-next-line import/order
-import dotenv from "dotenv";
-
-const filename = fileURLToPath(import.meta.url);
-const dirname = path.dirname(filename);
-
-dotenv.config({ path: path.resolve(dirname, "..", "..", ".env") });
-
-// eslint-disable-next-line import/order
 import { program } from "commander";
+import dotenv from "dotenv";
 import mongoose from "mongoose";
 
 import { importJsonData } from "./commands/importJsonData";
 import { IOptionValues } from "./types/common";
 import mongoDbConnection from "../src/services/mongoose/connection";
 import { CONNECTION_EVENTS } from "../src/types/mongoose";
+
+const filename = fileURLToPath(import.meta.url);
+const dirname = path.dirname(filename);
+dotenv.config({ path: path.resolve(dirname, "..", "..", ".env") });
 
 const DB_NAME = process.env.MONGO_DATABASE_NAME as string;
 const DB_CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING as string;
@@ -35,8 +31,6 @@ program.parse(process.argv);
 
 const options = program.opts();
 
-// eslint-disable-next-line no-console
-console.log("NAME:", DB_CONNECTION_STRING);
 // DB configuration and connection create
 mongoDbConnection({
   reconnectInterval : 10000,
