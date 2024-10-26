@@ -1,0 +1,12 @@
+<div class="container">
+  {{# each categories}}
+  <div class="category">
+    <h2><a href="/categories/{{this._id}}" class="category-link">{{this.name}}</a></h2>
+    <ul class="car-list">
+      {{# each this.cars}}
+        <li><a href="/categories/{{this.categoryId}}/cars/{{this._id}}" class="car-link">{{this.model}}</a></li>
+      {{/ each}}
+    </ul>
+  </div>
+  {{/ each}}
+</div>

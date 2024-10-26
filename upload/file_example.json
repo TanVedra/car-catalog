@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Pickup trucks",
+    "description": "There is one interesting detail regarding pickups. According to the European standard, pickup trucks do not fall into the usual categories of vehicles with letter designations. However, in the United States, the approach to classifying these vehicles is completely different. In the American system, pickups occupy their own unique segment. This is quite logical given their popularity and functionality in the United States. Interestingly, within this segment, Americans have even identified several subcategories: from compact pickups, which are ideal for city life, to medium-sized pickups, designed for more serious tasks. There are also full-size pickups, which are often chosen for work and leisure. This division emphasizes the diversity and versatility of pickup trucks, making them not just a vehicle, but a real work tool for different life situations.",
+    "imageUrl": "https://images2.exist.ua/media/settings/files/Chevrolet-Silverado_ybhjgDy.png",
+    "cars": [
+      {
+        "model": "Nissan Navara 2007",
+        "price": 8500,
+        "color": "Dark Grey",
+        "description": "I will sell a well-maintained car. For every question you have about the car, I will answer that everything works. Much has been done recently. the car is driven every day, and has not failed to deliver.",
+        "imageUrl": "https://cdn1.riastatic.com/photosnew/auto/photo/nissan_navara__573154051hd.webp"
+      },
+      {
+        "model": "Toyota Tundra 2020",
+        "price": 38900,
+        "color": "Red",
+        "description": "The car is in good condition. 20 model year. TRD equipment with rear and front stabilizer. Cruise control with distronic and lane keeping sensor. Automatic light switching. New winter tires. Two keys. Gas installation is installed!",
+        "imageUrl": "https://cdn2.riastatic.com/photosnew/auto/photo/toyota_tundra__572149047hd.webp"
+      },
+      {
+        "model": "Dodge RAM 1500 2020",
+        "price": 68500,
+        "color": "Black",
+        "description": "The car is in good condition, all oils have been replaced, the electronics are in good condition, the Rebel is in good condition, more information by phone.",
+        "imageUrl": "https://cdn1.riastatic.com/photosnew/auto/photo/dodge_ram-1500__573496736hd.webp"
+      }
+    ]
+  }
+]

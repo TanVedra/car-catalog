@@ -1,0 +1,11 @@
+<nav class="crumbs">  
+  <ol>
+    <li class="crumb"><a href="/">Home</a></li>
+    {{#if categoryId}}
+      <li class="crumb"><a href="/categories/{{categoryId}}">{{categoryName}}</a></li>
+    {{/if}}
+    {{#if carId}}
+      <li class="crumb">{{carModel}}</li>
+    {{/if}}
+  </ol>
+</nav>

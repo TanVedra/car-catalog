@@ -1,0 +1,52 @@
+.container {
+  max-width: 800px;
+  margin: 0px auto;
+}
+
+.category {
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.category-title {
+  margin: 0;
+  font-size: 1.5em;
+  color: #333;
+}
+
+.category-link {
+  text-decoration: none;
+  color: #007bff;
+  transition: transform 0.2s;
+}
+
+.category-link:hover {
+  transform: translateX(5px);
+  color: #0056b3;
+}
+
+.car-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+}
+
+.car-list li {
+  margin: 5px 0;
+}
+
+.car-link {
+  text-decoration: none;
+  color: #007bff;
+  font-size: 1.1em;
+  transition: transform 0.2s;
+}
+
+.car-link:hover {
+  transform: translateX(5px);
+  color: #0056b3;
+}

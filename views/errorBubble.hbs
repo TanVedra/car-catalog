@@ -1,0 +1,16 @@
+
+<div class="bubble"></div>
+<div class="bubble"></div>
+<div class="bubble"></div>
+<div class="bubble"></div>
+<div class="bubble"></div>
+<div class="main">
+  <h1>{{code}}</h1>
+  <p>{{message}}</p>
+  <a href="/">Go Home</a>
+  {{# if isErrorMessages}}
+    {{# each errors}}
+    <p class="error-message">{{this.message}}</p>
+    {{/ each}}
+  {{/ if}}
+</div>
