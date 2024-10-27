@@ -8,7 +8,7 @@ export default function errorHandlingMiddlware(error: Error | CustomError, req: 
   if (error instanceof ValidationError) {
     logger.error(`[ID=${req.requestId}]: ${error.name}:\n`, error);
     res.render(
-      "errorBubble",
+      "pages/error/errorBubble",
       {
         layout          : "error",
         title           : "Error",
@@ -20,7 +20,7 @@ export default function errorHandlingMiddlware(error: Error | CustomError, req: 
   } else if (error instanceof CustomError) {
     logger.error(`[ID=${req.requestId}]: ${error.name}:\n`, error);
     res.render(
-      "errorBubble",
+      "pages/error/errorBubble",
       {
         layout  : "error",
         title   : "Error",
@@ -30,7 +30,7 @@ export default function errorHandlingMiddlware(error: Error | CustomError, req: 
   } else {
     logger.error(`[ID=${req.requestId}]: Internal server error:\n`, error);
     res.render(
-      "errorBubble",
+      "pages/error/errorBubble",
       {
         layout  : "error",
         title   : "Error",

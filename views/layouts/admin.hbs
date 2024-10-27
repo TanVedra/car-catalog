@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}}</title>
+    <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+    <link href="/css/normalize.css" rel="stylesheet" type="text/css">
+    <link href="/css/layouts/admin.css" rel="stylesheet" type="text/css">
+    <link href="/css/partials/adminPanelTitle.css" rel="stylesheet" type="text/css">
+    <link href="/css/partials/footer.css" rel="stylesheet" type="text/css">
+    {{# if isLoginPage}}
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+      <link href="/css/pages/admin/login.css" rel="stylesheet" type="text/css">
+    {{/ if}}
+  </head>
+  <body>
+    {{> adminPageTitle}}
+    <main>
+      {{{body}}}
+    </main>
+    {{> footer}}
+  </body>
+</html>

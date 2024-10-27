@@ -1,0 +1,27 @@
+nav {
+  padding: 30px 0px 30px 30px;
+  background-color: aqua;
+  grid-row: 1;
+}
+
+.crumbs ol {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.crumb {
+  display: inline-block;
+}
+
+.crumb a {
+  text-decoration: none;
+}
+
+.crumb a::after {
+  display: inline-block;
+  color: #000;
+  content: '>';
+  font-size: 80%;
+  font-weight: bold;
+  padding: 0 3px;
+}

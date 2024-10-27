@@ -7,15 +7,17 @@
     <title>{{title}}</title>
     <link rel="icon" href="/images/favicon.ico" type="image/x-icon">
     <link href="/css/normalize.css" rel="stylesheet" type="text/css">
-    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href="/css/layouts/main.css" rel="stylesheet" type="text/css">
+    <link href="/css/partials/menu.css" rel="stylesheet" type="text/css">
+    <link href="/css/partials/footer.css" rel="stylesheet" type="text/css">
     {{# if isHomePage}}
-      <link href="/css/home.css" rel="stylesheet" type="text/css">
+      <link href="/css/pages/main/home.css" rel="stylesheet" type="text/css">
     {{/ if}}
     {{# if isCategoryPage}}
-      <link href="/css/category.css" rel="stylesheet" type="text/css">
+      <link href="/css/pages/main/category.css" rel="stylesheet" type="text/css">
     {{/ if}}
     {{# if isCarPage}}
-      <link href="/css/car.css" rel="stylesheet" type="text/css">
+      <link href="/css/pages/main/car.css" rel="stylesheet" type="text/css">
     {{/ if}}
   </head>
   <body>
