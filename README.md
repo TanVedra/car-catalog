@@ -85,7 +85,7 @@ This CLI only supports **JSON** files as the import source.
 To run the CLI, use the following command:
 
 ```bash
-import-data-cli --file <path_to_file>
+import-cli --file <path_to_file>
 ```
 
 ### Options
@@ -101,7 +101,7 @@ import-data-cli --file <path_to_file>
 #### Importing Data from JSON
 
 ```bash
-import-data-cli --file /path/to/cars.json
+import-cli --file /path/to/cars.json
 ```
 
 This command will parse the JSON file specified by the `--file` option and import the data into the application's database.
