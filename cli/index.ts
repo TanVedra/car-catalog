@@ -25,7 +25,7 @@ program
   .description("Imports data from JSON file to MongoDB");
 
 program
-  .option("-f, --file <path>", "Absolute path to the file to be downloaded");
+  .option("-f, --file <path>", "Path to the file to be downloaded");
 
 program.parse(process.argv);
 

@@ -14,17 +14,17 @@ export default function connection(options: IConnectionOptions): IConnection {
   }
 
   mongoose.connection.on(CONNECTION_EVENTS.STOP, () => {
-    logger.info("Stopping MongoDb connection...");
+    logger.debug("Stopping MongoDb connection...");
     mongoose.connection.removeAllListeners();
     mongoose.disconnect();
   });
 
   mongoose.connection.on(CONNECTION_EVENTS.CONNECTED, () => {
-    logger.info("Connected to MongoDB!");
+    logger.debug("Connected to MongoDB!");
   });
 
   mongoose.connection.on(CONNECTION_EVENTS.RECONNECTED, () => {
-    logger.info("MongoDB reconnected!");
+    logger.debug("MongoDB reconnected!");
   });
 
   mongoose.connection.on(CONNECTION_EVENTS.DISCONNECTED, () => {

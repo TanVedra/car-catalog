@@ -1,4 +1,5 @@
 import fs from "node:fs/promises";
+import path from "node:path";
 
 import mongoose, { Types } from "mongoose";
 
@@ -16,7 +17,9 @@ export async function importJsonData(options: IOptionValues): Promise<void> {
   try {
     logger.debug("Starting file upload...");
     const { file } = options;
-    const dataString = await fs.readFile(file, "utf8");
+    const isAbsolute = path.isAbsolute(file);
+    const filePath = isAbsolute ? file : path.resolve(process.cwd(), file);
+    const dataString = await fs.readFile(path.normalize(filePath), "utf8");
     let dataToSave: IJsonFileData[] = [];
 
     try {
@@ -53,9 +56,9 @@ export async function importJsonData(options: IOptionValues): Promise<void> {
 
     await categoryRepository.saveCategories({ payload: categoriesToSave, requestId: "CLI EXECUTION" });
     await carRepository.saveCars({ payload: carsToSave, requestId: "CLI EXECUTION" });
-    logger.debug("Finishing file upload...");
+    logger.info("File uploaded");
   } catch (error) {
-    logger.error("ERROR:\n", error);
+    logger.error("CLI-ERROR:\n", error);
   } finally {
     mongoose.connection.emit(CONNECTION_EVENTS.STOP);
   }

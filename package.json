@@ -9,12 +9,13 @@
     "npm": "~10.9.0"
   },
   "scripts": {
-    "build": "rm -rf dist && tsc --build tsconfig.json && tsc-alias",
-    "postbuild": "chmod +x dist/cli/index.js && npm link",
+    "build": "rimraf dist && tsc --build tsconfig.json && tsc-alias",
+    "cli:init": "npm link",
+    "cli:permission": "chmod +x dist/cli/index.js",
     "start": "node dist/src/app.js",
     "migrations": "npm run build && node --env-file=.env migrations/seedData.js",
     "eslint-check": "node_modules/eslint/bin/eslint.js ./src/** --quiet",
-    "dev": "./node_modules/nodemon/bin/nodemon.js",
+    "dev": "node ./node_modules/nodemon/bin/nodemon.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -25,7 +26,7 @@
   "author": "Andrii Halychanivskyi",
   "license": "ISC",
   "bin": {
-    "import-data-cli": "dist/cli/index.js"
+    "import-cli": "./dist/cli/index.js"
   },
   "dependencies": {
     "ajv": "^8.17.1",
@@ -52,6 +53,7 @@
     "eslint-plugin-import": "^2.31.0",
     "nodemon": "^3.1.7",
     "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
     "tsc-alias": "^1.8.10",
     "typescript": "^5.6.3"
   }
