@@ -1,0 +1,30 @@
+<table>
+  <tr>
+    <th>Model</th>
+    <th>Price</th>
+    <th>Color</th>
+    <th>Description</th>
+    <th>Category</th>
+    <th>Action</th>
+  </tr>
+  {{# each cars}}
+  <tr>
+    <form action="/admin/cars/{{this._id}}" method="POST">
+      <td><input type="text" name="name" value="{{this.model}}" required></td>
+      <td><input type="number" name="price" value="{{this.price}}" required></td>
+      <td><input type="text" name="color" value="{{this.color}}" required></td>
+      <td><input type="text" name="description" value="{{this.description}}" required></td>
+      <td>
+        <select name="categoryId" required>
+          {{# each ../categories}}
+            <option value="{{this._id}}" {{# isSelected ../categoryId this._id}}selected{{/ isSelected}}>
+              {{this.name}}
+            </option>
+          {{/ each}}
+        </select>
+      </td>
+      <td><button type="submit">Update</button></td>
+    </form>
+  </tr>
+  {{/ each}}
+</table>

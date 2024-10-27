@@ -5,6 +5,7 @@ import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+import bodyParser from "body-parser";
 import express from "express";
 import { engine } from "express-handlebars";
 
@@ -12,6 +13,7 @@ import CONSTANTS from "./constants/common";
 import errorHandlingMiddleware from "./middlewares/errorHandlingMiddleware";
 import loggerMiddleware from "./middlewares/loggerMiddleware";
 import registerAllRoutes from "./routes";
+import CustomHelpers from "./services/handlebars";
 import logger from "./services/logger";
 import mongoDbConnection from "./services/mongoose/connection";
 
@@ -41,6 +43,12 @@ if (process.env.RUN_IN_PARALEL === "true" && cluster.isPrimary) {
   }));
   app.set("view engine", "hbs");
   app.set("views", path.join(dirname, "..", "..", "views"));
+
+  // Initialize custom handlebars helpers
+  CustomHelpers.init();
+
+  // Parses URL-encoded bodies (as sent by HTML forms)
+  app.use(bodyParser.urlencoded({ extended: false }));
 
   // Initialize static folder
   app.use(express.static(path.join(dirname, "..", "..", "public")));

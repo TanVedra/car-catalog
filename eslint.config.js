@@ -139,7 +139,7 @@ export default [
       "@typescript-eslint/default-param-last": "warn",
       "no-extra-semi": "off",
       "no-invalid-this": "off",
-      "@typescript-eslint/no-invalid-this": "error",
+      "@typescript-eslint/no-invalid-this": "off",
       "no-shadow": "off",
       "@typescript-eslint/no-shadow": "error",
       "require-await": "off",

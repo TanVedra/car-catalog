@@ -11,7 +11,12 @@ class AdminRouter  {
 
   public register(): Router {
     this.router.route("/admin/login")
-      .get(AdminController.getLoginPage);
+      .get(AdminController.getLoginPage)
+      .post(AdminController.authorizeUser);
+    this.router.route("/admin/cars/:carId")
+      .post(AdminController.updateCarById);
+    this.router.route("/admin/cars")
+      .get(AdminController.getEditCarsPage);
     // Redirect all wrong requests to login page
     this.router.route("/admin/*")
       .get(AdminController.redirectToLoginPage);

@@ -16,7 +16,7 @@ class CategoryRepository {
     this.categoryCollection = dbConnection.models.categories;
   }
 
-  public async getCategoryList(
+  public async getCategoryDetailsList(
     data: IBaseRequest<null>,
   ): Promise<IBaseListResponse<ICategoryListData[]>> {
     const {
@@ -26,7 +26,7 @@ class CategoryRepository {
     } = data;
 
     try {
-      logger.debug(`[ID=${requestId}]: Inside ${this.getCategoryList.name} repository`);
+      logger.debug(`[ID=${requestId}]: Inside ${this.getCategoryDetailsList.name} repository`);
 
       let total = 0;
       let categories: ICategoryListData[] = [];
@@ -69,7 +69,7 @@ class CategoryRepository {
         .then((result: { data: ICategoryListData[]; total: number }[]) =>
           result?.length ? result[0] : { data: [], total: 0 },
         ));
-      logger.debug(`[ID=${requestId}]: Sending response from ${this.getCategoryList.name} repository`);
+      logger.debug(`[ID=${requestId}]: Sending response from ${this.getCategoryDetailsList.name} repository`);
 
       return {
         data: {
@@ -78,7 +78,33 @@ class CategoryRepository {
         },
       };
     } catch (error) {
-      logger.error(`[ID=${requestId}]: Error occured while getting category list data in ${this.getCategoryList.name} repository`);
+      logger.error(`[ID=${requestId}]: Error occured while getting category list data in ${this.getCategoryDetailsList.name} repository`);
+      throw error;
+    }
+  }
+
+  public async getCategoryDropdownList(
+    data: IBaseRequest<null>,
+  ): Promise<IBaseResponse<ICategorySchema[]>> {
+    const {
+      requestId,
+    } = data;
+    try {
+      logger.debug(`[ID=${requestId}]: Inside ${this.getCategoryDropdownList.name} repository`);
+
+      const categories = await this.categoryCollection
+        .find({}, { updatedAt: 0, createdAt: 0, description: 0 })
+        .sort({ model: 1 })
+        .lean()
+        .exec();
+
+      logger.debug(`[ID=${requestId}]: Sending response from ${this.getCategoryDropdownList.name} repository`);
+
+      return {
+        data: categories,
+      };
+    } catch (error) {
+      logger.error(`[ID=${requestId}]: Error occured while getting cars list in ${this.getCategoryDropdownList.name} repository`);
       throw error;
     }
   }

@@ -1,0 +1,84 @@
+main > h1 {
+  text-align: center;
+  color: blue;
+  font-size: 1.8em;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th, td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  font-size: 1em;
+}
+
+th {
+  background-color: aqua;
+  color: blue;
+  font-weight: bold;
+}
+
+td {
+  background-color: white;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 6px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1em;
+  color: blue;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid blue;
+  border-radius: 5px;
+  background-color: azure;
+  color: blue;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+select:hover, select:focus {
+  border-color: aqua;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 128, 255, 0.4);
+}
+
+select option {
+  background-color: azure;
+  color: blue;
+}
+
+select:disabled {
+  background-color: lightgray;
+  color: darkgray;
+  cursor: not-allowed;
+}
+
+button[type="submit"] {
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 1em;
+  font-weight: 900;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: aqua;
+  color: blue;
+}

@@ -1,3 +1,9 @@
 <div class="title">  
-  <h2>Admin Panel</h2>
+  <h2>
+    {{# if title}}
+      {{title}}
+    {{else}}
+      Admin Panel
+    {{/ if}}
+  </h2>
 </div>

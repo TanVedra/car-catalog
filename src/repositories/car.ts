@@ -81,6 +81,63 @@ class CarRepository {
       throw error;
     }
   }
+
+  public async updateCarById(
+    data: IBaseRequest<ICarSchema>,
+  ): Promise<IBaseResponse<ICarSchema>> {
+    const {
+      requestId,
+    } = data;
+    try {
+      logger.debug(`[ID=${requestId}]: Inside ${this.updateCarById.name} repository`);
+      const car = data.payload;
+
+      const updatedCar = await this.carCollection.findByIdAndUpdate(new Types.ObjectId(car._id), car);
+
+      logger.debug(`[ID=${requestId}]: Sending response from ${this.updateCarById.name} repository`);
+
+      return {
+        data: updatedCar,
+      };
+    } catch (error) {
+      logger.error(`[ID=${requestId}]: Error occured while update car by ID in ${this.updateCarById.name} repository`);
+      throw error;
+    }
+  }
+
+  public async getCarsList(
+    data: IBaseRequest<null>,
+  ): Promise<IBaseResponse<ICarSchema[]>> {
+    const {
+      requestId,
+    } = data;
+    try {
+      logger.debug(`[ID=${requestId}]: Inside ${this.getCarsList.name} repository`);
+
+      const cars = await this.carCollection
+        .find({}, { updatedAt: 0, createdAt: 0 })
+        .sort({ model: 1 })
+        .populate({
+          select : "name",
+          path   : "category",
+        })
+        .lean()
+        .exec();
+
+      cars.forEach((car) => {
+        car.category = (car.category as unknown as ICarSchema["category"][])[0];
+      });
+
+      logger.debug(`[ID=${requestId}]: Sending response from ${this.getCarsList.name} repository`);
+
+      return {
+        data: cars,
+      };
+    } catch (error) {
+      logger.error(`[ID=${requestId}]: Error occured while getting cars list in ${this.getCarsList.name} repository`);
+      throw error;
+    }
+  }
 }
 
 export default new CarRepository(getDatabaseConnection() as Connection);
