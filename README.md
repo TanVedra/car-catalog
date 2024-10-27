@@ -74,7 +74,7 @@ Now you're ready to use the Car Catalog project. For additional information on a
 
 # Car Catalog CLI - Import Cars and Categories
 
-The **Car Catalog CLI** is a command-line tool for importing categories and cars into the application from a JSON file. This file should contain categories with their associated cars, including details like model, price, color, and image URL. 
+The **Car Catalog CLI** is a command-line tool for importing categories and cars into the application from a JSON file. This file should contain categories with their associated cars, including details like model, price, color, and image URL. For testing, a sample file `file_example.json` is provided in the `upload` folder.
 
 ## Supported Format
 
